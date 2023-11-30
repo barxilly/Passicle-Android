@@ -45,10 +45,11 @@ public class FirstFragment extends Fragment {
                             .setAnchorView(R.id.button)
                             .setAction("Action", null).show();
                 } else {
-                    String encrypted = encrypt(acc.toString(), key.toString());
+                    String encrypted = encrypt(acc.toString().toLowerCase(), key.toString().toLowerCase());
                     password = encrypted;
                     // Set binding.generated to the encrypted password but replace the characters with *
                     binding.generated.setText(encrypted.replaceAll(".", "*"));
+                    binding.showButton.setText("Show");
                     binding.copyButton.setVisibility(View.VISIBLE);
                     binding.showButton.setVisibility(View.VISIBLE);
                 }
